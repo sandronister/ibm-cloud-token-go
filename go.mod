@@ -1,4 +1,4 @@
-module lab.bia.env2
+module lab.ibm.cloud
 
 go 1.20
 
