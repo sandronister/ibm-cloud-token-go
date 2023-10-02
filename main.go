@@ -4,11 +4,22 @@ import (
 	"encoding/json"
 	"os"
 
-	"lab.ibm.cloud/credentials"
+	"github.com/gofor-little/env"
+	"github.com/sandronister/ibm-cloud-token-go/adapter/ibm/di"
 )
 
+func init() {
+	err := env.Load(".env")
+	if err != nil {
+		panic(err)
+	}
+}
+
 func main() {
-	iCloud := credentials.IBMCloud{}
-	res := iCloud.GetToken()
-	json.NewEncoder(os.Stdout).Encode(res)
+	ibmConnect := di.ConfigIBMConect()
+	token, err := ibmConnect.GetToken()
+	if err != nil {
+		panic(err)
+	}
+	json.NewEncoder(os.Stdout).Encode(token)
 }

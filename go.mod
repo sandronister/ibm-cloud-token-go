@@ -1,4 +1,4 @@
-module lab.ibm.cloud
+module github.com/sandronister/ibm-cloud-token-go
 
 go 1.20
 
