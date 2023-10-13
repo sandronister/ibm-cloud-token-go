@@ -9,7 +9,7 @@ import (
 
 func (u *usecase) GetToken() (*domain.IBMToken, error) {
 	cLogin := u.getLoginConfig()
-	ctx, cancel := context.WithTimeout(context.Background(), 700*time.Millisecond)
+	ctx, cancel := context.WithTimeout(context.Background(), 600*time.Millisecond)
 	defer cancel()
 	result, err := u.repository.Connect(ctx, cLogin)
 
